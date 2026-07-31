@@ -1,0 +1,21 @@
+"use client";
+import FlightSearch from "@/components/flight/FlightSearch/FlightSearch";
+// import BannerSlider from "@/components/flight/BannerSlider/BannerSlider";
+// import OffersCard from "@/components/flight/OffersCard/OffersCard";
+// import { bannerSlides, moreOffers } from "@/data/flightPromoData";
+import "../FlightSearchLayout.css";
+
+export default function FlightSearchLayout() {
+    return (
+        <div className="tk-layout">
+            <div className="tk-layout-main">
+                <FlightSearch />
+            </div>
+
+            {/* <div className="tk-layout-side">
+                <BannerSlider slides={bannerSlides} />
+                <OffersCard offers={moreOffers} onViewAll={() => console.log("view all offers")} />
+            </div> */}
+        </div>
+    );
+}

@@ -1,0 +1,36 @@
+.tk-layout {
+    display: grid;
+    grid-template-columns: 7.5% 65% 20% 7.5%;
+    align-items: start;
+    padding: 32px 0;
+}
+
+.tk-layout-main {
+    grid-column: 2;
+    padding-right: 16px;
+    box-sizing: border-box;
+}
+
+.tk-layout-side {
+    grid-column: 3;
+    padding-left: 16px;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+@media (max-width: 1024px) {
+    .tk-layout {
+        grid-template-columns: 5% 90% 5%;
+        row-gap: 24px;
+    }
+
+    .tk-layout-main,
+    .tk-layout-side {
+        grid-column: 2;
+        padding-left: 0;
+        padding-right: 0;
+    }
+}
+

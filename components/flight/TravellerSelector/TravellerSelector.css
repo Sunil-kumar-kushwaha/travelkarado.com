@@ -1,0 +1,137 @@
+.tk-traveller-selector {
+    position: relative;
+}
+
+.tk-traveller-trigger {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    border: none;
+    background: transparent;
+    cursor: pointer;
+    padding: 6px 4px;
+}
+
+.tk-traveller-trigger-icon {
+    font-size: 20px;
+    color: #3d4759;
+}
+
+.tk-traveller-trigger-text {
+    font-size: 16px;
+    font-weight: 600;
+    color: #1a2b49;
+    white-space: nowrap;
+}
+
+.tk-traveller-trigger-chevron {
+    font-size: 20px;
+    color: #7c8798;
+    transition: transform 0.15s ease;
+}
+
+.tk-traveller-open {
+    transform: rotate(180deg);
+}
+
+.tk-traveller-panel {
+    position: absolute;
+    top: calc(100% + 5px);
+    left: 0;
+    width: 300px;
+    background: #fff;
+    border-radius: 10px;
+    box-shadow: 0 12px 34px rgba(15, 23, 42, 0.18);
+    padding: 12px;
+    z-index: 20;
+}
+
+.tk-traveller-counter-row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 6px 0;
+    border-bottom: 1px solid #eef1f5;
+}
+
+.tk-traveller-counter-row:last-of-type {
+    border-bottom: none;
+}
+
+.tk-traveller-counter-label {
+    font-size: 14px;
+    font-weight: 700;
+    color: #1a2b49;
+}
+
+.tk-traveller-counter-sublabel {
+    font-size: 12px;
+    color: #7c8798;
+}
+
+.tk-traveller-counter-controls {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.tk-traveller-counter-btn {
+    width: 26px;
+    height: 26px;
+    border-radius: 50%;
+    border: 1px solid #c3cad6;
+    background: #fff;
+    color: #0f4c9c;
+    font-size: 16px;
+    cursor: pointer;
+    line-height: 1;
+}
+
+.tk-traveller-counter-btn:disabled {
+    opacity: 0.4;
+    cursor: not-allowed;
+}
+
+.tk-traveller-counter-value {
+    min-width: 16px;
+    text-align: center;
+    font-weight: 700;
+    color: #1a2b49;
+}
+
+.tk-traveller-classes {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-top: 12px;
+}
+
+.tk-traveller-class-chip {
+    border: 1px solid #dfe4ec;
+    background: #fff;
+    border-radius: 999px;
+    padding: 6px 12px;
+    font-size: 12.5px;
+    font-weight: 600;
+    color: #3d4759;
+    cursor: pointer;
+}
+
+.tk-traveller-class-active {
+    border-color: #0f4c9c;
+    background: #0f4c9c;
+    color: #fff;
+}
+
+.tk-traveller-apply {
+    width: 100%;
+    margin-top: 14px;
+    background: #0f4c9c;
+    color: #fff;
+    border: none;
+    border-radius: 8px;
+    padding: 10px;
+    font-weight: 700;
+    font-size: 14px;
+    cursor: pointer;
+}

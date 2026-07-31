@@ -1,0 +1,93 @@
+.tk-offers {
+    margin-top: 18px;
+}
+
+.tk-offers-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 12px;
+}
+
+.tk-offers-header h4 {
+    margin: 0;
+    font-size: 18px;
+    font-weight: 800;
+    color: #1a2b49;
+}
+
+.tk-offers-viewall {
+    border: none;
+    background: none;
+    color: #0f4c9c;
+    font-weight: 700;
+    font-size: 14px;
+    cursor: pointer;
+    padding: 0;
+}
+
+.tk-offers-card {
+    background: #fff;
+    border: 1px solid #e4e8ef;
+    border-radius: 12px;
+    padding: 18px;
+    box-shadow: 0 8px 20px rgba(15, 23, 42, 0.06);
+}
+
+.tk-offers-card h5 {
+    margin: 0 0 8px;
+    font-size: 16px;
+    font-weight: 800;
+    color: #1a2b49;
+}
+
+.tk-offers-card p {
+    margin: 0 0 10px;
+    font-size: 13.5px;
+    color: #3d4759;
+    line-height: 1.5;
+}
+
+.tk-offers-cta {
+    display: block;
+    font-size: 13.5px;
+    font-weight: 700;
+    color: #1a2b49;
+    margin-bottom: 8px;
+}
+
+.tk-offers-link {
+    font-size: 13.5px;
+    font-weight: 700;
+    color: #0f4c9c;
+    text-decoration: none;
+}
+
+.tk-offers-nav {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 14px;
+    margin-top: 14px;
+}
+
+.tk-offers-nav-btn {
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    border: 1px solid #dfe4ec;
+    background: #fff;
+    color: #0f4c9c;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    font-size: 18px;
+}
+
+.tk-offers-nav-dot {
+    width: 20px;
+    height: 4px;
+    border-radius: 2px;
+    background: #dfe4ec;
+}

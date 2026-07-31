@@ -1,0 +1,54 @@
+.tk-triptype {
+    display: flex;
+    align-items: center;
+    gap: 28px;
+    padding: 4px 4px 14px;
+}
+
+.tk-triptype-compact {
+    padding: 0;
+    gap: 22px;
+}
+
+.tk-triptype-option {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    cursor: pointer;
+}
+
+.tk-triptype-option input {
+    display: none;
+}
+
+.tk-triptype-radio {
+    width: 16px;
+    height: 16px;
+    border-radius: 50%;
+    border: 2px solid #c3cad6;
+    position: relative;
+    flex-shrink: 0;
+    transition: border-color 0.15s ease;
+}
+
+.tk-triptype-option input:checked+.tk-triptype-radio {
+    border-color: #0f4c9c;
+}
+
+.tk-triptype-option input:checked+.tk-triptype-radio::after {
+    content: "";
+    position: absolute;
+    inset: 2px;
+    border-radius: 50%;
+    background: #0f4c9c;
+}
+
+.tk-triptype-label {
+    font-size: 14px;
+    font-weight: 600;
+    color: #3d4759;
+}
+
+.tk-triptype-option input:checked~.tk-triptype-label {
+    color: #0f4c9c;
+}

@@ -1,0 +1,78 @@
+.tk-input-wrapper {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    background: #ffffff;
+    cursor: text;
+    padding: 10px 14px;
+    box-sizing: border-box;
+    position: relative;
+    transition: background 0.15s ease;
+}
+
+.tk-input-clickable {
+    cursor: pointer;
+}
+
+.tk-input-wrapper:hover {
+    background: #f6f8fb;
+}
+
+.tk-input-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 18px;
+    color: #0f4c9c;
+    flex-shrink: 0;
+}
+
+.tk-input-body {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+    min-width: 0;
+}
+
+.tk-input-label {
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 0.3px;
+    text-transform: uppercase;
+    color: #7c8798;
+    margin-bottom: 2px;
+}
+
+.tk-input-field {
+    border: none;
+    outline: none;
+    background: transparent;
+    font-size: 15px;
+    font-weight: 700;
+    color: #1a2b49;
+    width: 100%;
+    padding: 0;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
+}
+
+.tk-input-field::placeholder {
+    color: #a9b2c0;
+    font-weight: 500;
+}
+
+.tk-input-field:disabled {
+    cursor: not-allowed;
+}
+
+.tk-input-suffix {
+    display: flex;
+    align-items: center;
+    flex-shrink: 0;
+}
+
+.tk-input-disabled {
+    opacity: 0.5;
+    pointer-events: none;
+}

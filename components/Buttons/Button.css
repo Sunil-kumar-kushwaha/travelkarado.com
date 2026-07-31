@@ -1,0 +1,62 @@
+.tk-btn {
+    border: none;
+    border-radius: 8px;
+    font-size: 15px;
+    font-weight: 700;
+    cursor: pointer;
+    padding: 12px 24px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    transition: transform 0.1s ease, box-shadow 0.15s ease, opacity 0.15s ease;
+}
+
+.tk-btn:active:not(:disabled) {
+    transform: translateY(1px);
+}
+
+.tk-btn:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+}
+
+.tk-btn-primary {
+    background: linear-gradient(180deg, #ff8a00, #ff6600);
+    color: #fff;
+    box-shadow: 0 8px 18px rgba(255, 102, 0, 0.35);
+}
+
+.tk-btn-primary:hover:not(:disabled) {
+    box-shadow: 0 10px 22px rgba(255, 102, 0, 0.45);
+}
+
+.tk-btn-secondary {
+    background: #0f4c9c;
+    color: #fff;
+}
+
+.tk-btn-secondary:hover:not(:disabled) {
+    background: #0d4183;
+}
+
+.tk-btn-outline {
+    background: transparent;
+    color: #0f4c9c;
+    border: 1.5px solid #0f4c9c;
+}
+
+.tk-btn-outline:hover:not(:disabled) {
+    background: #f0f5fc;
+}
+
+.tk-btn-danger {
+    background: #e0392b;
+    color: #fff;
+}
+
+.tk-btn-icon {
+    display: flex;
+    align-items: center;
+    font-size: 18px;
+}

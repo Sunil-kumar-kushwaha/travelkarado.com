@@ -1,0 +1,52 @@
+.tk-toggle-wrapper {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    cursor: pointer;
+    user-select: none;
+}
+
+.tk-toggle-input {
+    display: none;
+}
+
+.tk-toggle-track {
+    width: 40px;
+    height: 22px;
+    border-radius: 999px;
+    background: #d5dae2;
+    position: relative;
+    transition: background 0.2s ease;
+    flex-shrink: 0;
+}
+
+.tk-toggle-thumb {
+    position: absolute;
+    top: 2px;
+    left: 2px;
+    width: 18px;
+    height: 18px;
+    border-radius: 50%;
+    background: #fff;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.25);
+    transition: transform 0.2s ease;
+}
+
+.tk-toggle-input:checked+.tk-toggle-track {
+    background: #0f4c9c;
+}
+
+.tk-toggle-input:checked+.tk-toggle-track .tk-toggle-thumb {
+    transform: translateX(18px);
+}
+
+.tk-toggle-label {
+    font-size: 14px;
+    font-weight: 600;
+    color: #3d4759;
+}
+
+.tk-toggle-disabled {
+    opacity: 0.5;
+    pointer-events: none;
+}
