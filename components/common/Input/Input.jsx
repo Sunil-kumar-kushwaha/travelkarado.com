@@ -24,14 +24,8 @@ export default function Input({
     const isDateType = type === "date";
 
     return (
-        <div
-            className={`tk-input-wrapper ${onClick ? "tk-input-clickable" : ""} ${className} ${disabled ? "tk-input-disabled" : ""
-                }`}
-            style={{ width, height }}
-            onClick={!disabled ? onClick : undefined}
-        >
+        <div className={`tk-input-wrapper ${onClick ? "tk-input-clickable" : ""} ${className} ${disabled ? "tk-input-disabled" : ""}`} style={{ width, height }} onClick={!disabled ? onClick : undefined} >
             {icon && <span className="tk-input-icon">{icon}</span>}
-
             <div className="tk-input-body">
                 {label && <label className="tk-input-label">{label}</label>}
                 <input

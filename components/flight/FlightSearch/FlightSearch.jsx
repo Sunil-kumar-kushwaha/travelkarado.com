@@ -26,7 +26,7 @@ export default function FlightSearch() {
     const [to, setTo] = useState("");
     const [departDate, setDepartDate] = useState(new Date(new Date().setDate(new Date().getDate() + 1)));
     const [returnDate, setReturnDate] = useState(null);
-    const [activeCalendar, setActiveCalendar] = useState(null); // "depart" | "return" | null
+    const [activeCalendar, setActiveCalendar] = useState(null); 
 
     const [travellers, setTravellers] = useState({ adults: 1, children: 0, infants: 0, travelClass: "Economy" });
     const [selectedFares, setSelectedFares] = useState(new Set());
@@ -64,7 +64,7 @@ export default function FlightSearch() {
 
     return (
         <div className="tk-flightsearch">
-            {/* Sale banner */}
+            
             <div className="tk-salebanner">
                 <div className="tk-salebanner-text">
                     <h2>Save max on Flights!</h2>
@@ -77,7 +77,7 @@ export default function FlightSearch() {
             </div>
 
             <div className="tk-flightsearch-body">
-                {/* Trip type + travellers + track flights */}
+                
                 <div className="tk-flightsearch-toprow">
                     <TripType selected={tripType} onChange={setTripType} options={TRIP_OPTIONS} compact />
                     <div className="tk-flightsearch-divider-v" />
@@ -91,7 +91,7 @@ export default function FlightSearch() {
                     />
                 </div>
 
-                {/* From / To */}
+                
                 <div className="tk-flightsearch-locrow">
                     <Input
                         icon={<MdFlightTakeoff />}
@@ -112,12 +112,13 @@ export default function FlightSearch() {
                     />
                 </div>
 
-                {/* Dates */}
+                
                 <div className="tk-flightsearch-daterow">
                     <Input
                         type="date"
                         icon={<MdCalendarMonth />}
                         value={formatDate(departDate)}
+                        placeholder="Onward"
                         onClick={() => setActiveCalendar("depart")}
                         className="tk-date-input"
                     />
@@ -133,7 +134,7 @@ export default function FlightSearch() {
                     )}
                 </div>
 
-                {/* Fare types */}
+                
                 <FareCards
                     selectedFares={selectedFares}
                     onToggleFare={setSelectedFares}
@@ -141,7 +142,7 @@ export default function FlightSearch() {
                     onToggleBusiness={setBusinessFares}
                 />
 
-                {/* Non-stop + search */}
+                
                 <div className="tk-flightsearch-footer">
                     <Toggle checked={nonStop} onChange={setNonStop} label="Non-stop flights only" />
                     <Button text="Search Flights" variant="primary" width="220px" onClick={handleSearch} />
