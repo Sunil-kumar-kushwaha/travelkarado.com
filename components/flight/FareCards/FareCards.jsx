@@ -16,7 +16,7 @@ const FARE_TYPES = [
  */
 export default function FareCards({ selectedFares, onToggleFare, businessFares, onToggleBusiness }) {
     const toggleFare = (id) => {
-        const next = new Set(selectedFares);
+        const next = new Set();
         next.has(id) ? next.delete(id) : next.add(id);
         onToggleFare(next);
     };
@@ -27,7 +27,7 @@ export default function FareCards({ selectedFares, onToggleFare, businessFares, 
                 <input type="checkbox" checked={businessFares} onChange={(e) => onToggleBusiness(e.target.checked)} />
                 <span className="tk-farecard-checkbox" />
                 <span className="tk-farecard-business-text">
-                    <span className="tk-farecard-business-title">Business Fares by Cleartrip</span>
+                    <span className="tk-farecard-business-title">Business Fares by Tripkarwado.com</span>
                     <span className="tk-farecard-business-sub">Unlock 10% extra savings</span>
                 </span>
                 <Button text="Save More" variant="primary" className="tk-farecard-save-btn" />
