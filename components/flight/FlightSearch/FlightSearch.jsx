@@ -21,6 +21,7 @@ const formatDate = (date) => {
 };
 
 export default function FlightSearch() {
+    const [flightAutoComplete, setFlightAutoComplete] = useState([]);
     const [tripType, setTripType] = useState("oneway");
     const [from, setFrom] = useState("");
     const [to, setTo] = useState("");
@@ -36,6 +37,30 @@ export default function FlightSearch() {
     const handleSwap = () => {
         setFrom(to);
         setTo(from);
+    };
+    const handleAutoCompleteChange = async (value) => {
+        setFrom(value);
+        if (value.trim().length < 2) {
+            setFlightAutoComplete([]);
+            return;
+        }
+        try {
+            const result = await fetch(`http://localhost:5050/api/flights/airports-auto?countryCode=${encodeURIComponent(value)}`, {
+                method: "GET",
+                headers: {
+                    Accept: "application/json",
+                },
+            });
+            if (!result.ok) {
+                throw new Error(`HTTP ${result.status}`);
+            }
+            const data = await result.json();
+            console.log("Autocomplete response:", data);
+            setFlightAutoComplete(data.data);
+        } catch (error) {
+            console.error("Airport autocomplete failed:", error);
+            setFlightAutoComplete([]);
+        }
     };
 
     const handleDateSelect = (date) => {
@@ -97,7 +122,7 @@ export default function FlightSearch() {
                         icon={<MdFlightTakeoff />}
                         placeholder="Where from?"
                         value={from}
-                        onChange={(e) => setFrom(e.target.value)}
+                        onChange={(e) => handleAutoCompleteChange(e.target.value)}
                         className="tk-loc-input"
                     />
                     <button type="button" className="tk-swap-btn" onClick={handleSwap} aria-label="Swap origin and destination">
