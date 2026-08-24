@@ -1,0 +1,228 @@
+.loginModal__overlay {
+    position: fixed;
+    inset: 0;
+    z-index: 1000;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 16px;
+    background: rgba(0, 0, 0, 0.5);
+}
+
+.loginModal {
+    background: #fff;
+    border-radius: 16px;
+    height: 100%;
+    width: 100%;
+    max-height: 400px;
+    max-width: 786px;
+    display: flex;
+    position: relative;
+    overflow: hidden;
+    box-shadow: 0 20px 50px #00000040;
+}
+
+.loginModal__close {
+    position: absolute;
+    top: 16px;
+    right: 16px;
+    z-index: 1;
+    border: none;
+    background: transparent;
+    font-size: 20px;
+    line-height: 1;
+    color: #9ca3af;
+    cursor: pointer;
+}
+.resendOtp {
+    color: green;
+}
+
+.loginModal__close:hover {
+    color: #374151;
+}
+
+.loginModal__brandPanel {
+    display: none;
+    width: 40%;
+    flex-direction: column;
+    justify-content: flex-start;
+    padding: 32px;
+    background: #fbbf24;
+}
+
+.loginModal__brandIcon {
+    margin: 4px auto;
+    font-size: 50px;
+}
+
+.loginModal__brandText {
+    margin: 0px auto;
+    color: #1f2937;
+    font-size: 16px;
+    font-weight: 600;
+    line-height: 1;
+}
+
+.loginModal__formPanel {
+    display: flex;
+    flex: 1;
+    flex-direction: column;
+    justify-content: center;
+    padding: 32px;
+}
+
+.loginModal__title {
+    font-size: 18px;
+    font-weight: 600;
+    color: #111827;
+    margin: 0 0 16px;
+}
+
+.loginModal__phoneRow {
+    display: flex;
+    gap: 8px;
+    margin-bottom: 12px;
+}
+
+.loginModal__countryCode {
+    width: 72px;
+    padding: 10px 8px;
+    border: 1px solid #d1d5db;
+    border-radius: 8px;
+    font-size: 14px;
+    color: #374151;
+    background: #f9fafb;
+}
+
+.loginModal__phoneInput {
+    flex: 1;
+    padding: 10px 12px;
+    border: 1px solid #d1d5db;
+    border-radius: 8px;
+    font-size: 14px;
+}
+
+.loginModal__phoneInput:focus,
+.loginModal__otpInput:focus {
+    outline: none;
+    border-color: #111827;
+}
+
+.loginModal__error {
+    font-size: 13px;
+    color: #dc2626;
+    margin: 0 0 12px;
+}
+
+.loginModal__primaryBtn {
+    width: 100%;
+    padding: 12px;
+    border: none;
+    border-radius: 8px;
+    background: #111827;
+    color: #fff;
+    font-size: 14px;
+    font-weight: 600;
+    cursor: pointer;
+}
+
+.loginModal__primaryBtn:hover {
+    background: #1f2937;
+}
+
+.loginModal__primaryBtn:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+}
+
+.loginModal__divider {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin: 16px 0;
+}
+
+.loginModal__dividerLine {
+    flex: 1;
+    height: 1px;
+    background: #e5e7eb;
+}
+
+.loginModal__dividerText {
+    font-size: 12px;
+    color: #9ca3af;
+}
+
+.loginModal__googleBtn {
+    display: flex;
+    justify-content: center;
+}
+
+.loginModal__terms {
+    font-size: 12px;
+    color: #9ca3af;
+    margin: 16px 0 0;
+}
+
+.loginModal__backBtn {
+    border: none;
+    background: transparent;
+    font-size: 13px;
+    color: #6b7280;
+    cursor: pointer;
+    padding: 0;
+    margin-bottom: 12px;
+}
+
+.loginModal__backBtn:hover {
+    color: #374151;
+}
+
+.loginModal__subtitle {
+    font-size: 14px;
+    color: #6b7280;
+    margin: 0 0 20px;
+}
+
+.loginModal__otpRow {
+    display: flex;
+    gap: 12px;
+    margin-bottom: 16px;
+}
+
+.loginModal__otpInput {
+    width: 48px;
+    height: 48px;
+    text-align: center;
+    font-size: 18px;
+    border: 1px solid #d1d5db;
+    border-radius: 8px;
+}
+
+.loginModal__status {
+    font-size: 13px;
+    color: #6b7280;
+    margin: 0 0 12px;
+}
+
+.loginModal__resendBtn {
+    border: none;
+    background: transparent;
+    font-size: 13px;
+    font-weight: 600;
+    color: #111827;
+    cursor: pointer;
+    padding: 0;
+}
+
+.loginModal__resendBtn:disabled {
+    color: #9ca3af;
+    cursor: not-allowed;
+}
+
+@media (min-width: 640px) {
+    .loginModal__brandPanel {
+        display: flex;
+    }
+}

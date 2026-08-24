@@ -1,5 +1,6 @@
 "use client";
-import { useState } from "react";
+import { useState, useMemo, useCallback } from "react";
+import apiClient from '@/utils/ApiClient';
 import { MdFlightTakeoff, MdFlightLand, MdCalendarMonth, MdSwapHoriz } from "react-icons/md";
 import Input from "@/components/common/Input/Input";
 import Button from "@/components/common/Button/Button";
@@ -8,6 +9,7 @@ import CalendarModal from "@/components/common/Calendar/CalendarModal";
 import TripType from "@/components/flight/TripType/TripType";
 import TravellerSelector from "@/components/flight/TravellerSelector/TravellerSelector";
 import FareCards from "@/components/flight/FareCards/FareCards";
+import debounce from "@/utils/debounce";
 import "./FlightSearch.css";
 
 const TRIP_OPTIONS = [
@@ -27,7 +29,7 @@ export default function FlightSearch() {
     const [to, setTo] = useState("");
     const [departDate, setDepartDate] = useState(new Date(new Date().setDate(new Date().getDate() + 1)));
     const [returnDate, setReturnDate] = useState(null);
-    const [activeCalendar, setActiveCalendar] = useState(null); 
+    const [activeCalendar, setActiveCalendar] = useState(null);
 
     const [travellers, setTravellers] = useState({ adults: 1, children: 0, infants: 0, travelClass: "Economy" });
     const [selectedFares, setSelectedFares] = useState(new Set());
@@ -38,30 +40,31 @@ export default function FlightSearch() {
         setFrom(to);
         setTo(from);
     };
-    const handleAutoCompleteChange = async (value) => {
+    const handleFromAutoCompleteChange = (value) => {
         setFrom(value);
+        debouncedAutoComplete(value);
+    }
+    const handleToAutoCompleteChange = (value) => {
+        setTo(value);
+        debouncedAutoComplete(value);
+    }
+
+    const callAutoCompleteApi = useCallback(async (value) => {
         if (value.trim().length < 2) {
             setFlightAutoComplete([]);
             return;
         }
+
         try {
-            const result = await fetch(`http://localhost:5050/api/flights/airports-auto?countryCode=${encodeURIComponent(value)}`, {
-                method: "GET",
-                headers: {
-                    Accept: "application/json",
-                },
-            });
-            if (!result.ok) {
-                throw new Error(`HTTP ${result.status}`);
-            }
-            const data = await result.json();
-            console.log("Autocomplete response:", data);
+            const data = await apiClient.get('http://localhost:5050/api/flights/airports-auto', { countryCode: value }, { headers: { Accept: 'application/json' } });
             setFlightAutoComplete(data.data);
         } catch (error) {
-            console.error("Airport autocomplete failed:", error);
+            console.error('Airport autocomplete failed:', error);
             setFlightAutoComplete([]);
         }
-    };
+    }, []);
+
+    const debouncedAutoComplete = useMemo(() => debounce(callAutoCompleteApi, 500), [callAutoCompleteApi]);
 
     const handleDateSelect = (date) => {
         if (activeCalendar === "depart") {
@@ -89,7 +92,7 @@ export default function FlightSearch() {
 
     return (
         <div className="tk-flightsearch">
-            
+
             <div className="tk-salebanner">
                 <div className="tk-salebanner-text">
                     <h2>Save max on Flights!</h2>
@@ -102,7 +105,7 @@ export default function FlightSearch() {
             </div>
 
             <div className="tk-flightsearch-body">
-                
+
                 <div className="tk-flightsearch-toprow">
                     <TripType selected={tripType} onChange={setTripType} options={TRIP_OPTIONS} compact />
                     <div className="tk-flightsearch-divider-v" />
@@ -116,13 +119,13 @@ export default function FlightSearch() {
                     />
                 </div>
 
-                
+
                 <div className="tk-flightsearch-locrow">
                     <Input
                         icon={<MdFlightTakeoff />}
                         placeholder="Where from?"
                         value={from}
-                        onChange={(e) => handleAutoCompleteChange(e.target.value)}
+                        onChange={(e) => handleFromAutoCompleteChange(e.target.value)}
                         className="tk-loc-input"
                     />
                     <button type="button" className="tk-swap-btn" onClick={handleSwap} aria-label="Swap origin and destination">
@@ -132,12 +135,12 @@ export default function FlightSearch() {
                         icon={<MdFlightLand />}
                         placeholder="Where to?"
                         value={to}
-                        onChange={(e) => setTo(e.target.value)}
+                        onChange={(e) => handleToAutoCompleteChange(e.target.value)}
                         className="tk-loc-input"
                     />
                 </div>
 
-                
+
                 <div className="tk-flightsearch-daterow">
                     <Input
                         type="date"
@@ -159,7 +162,7 @@ export default function FlightSearch() {
                     )}
                 </div>
 
-                
+
                 <FareCards
                     selectedFares={selectedFares}
                     onToggleFare={setSelectedFares}
@@ -167,7 +170,7 @@ export default function FlightSearch() {
                     onToggleBusiness={setBusinessFares}
                 />
 
-                
+
                 <div className="tk-flightsearch-footer">
                     <Toggle checked={nonStop} onChange={setNonStop} label="Non-stop flights only" />
                     <Button text="Search Flights" variant="primary" width="220px" onClick={handleSearch} />
