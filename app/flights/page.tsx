@@ -12,7 +12,7 @@ export default function FlightSearchLayout() {
     return (
         <>
             <Header />
-            <Navbar />
+            <Navbar products={"flights"} />
             <div className="tk-layout">
                 <div className="tk-layout-main">
                     <FlightSearch />

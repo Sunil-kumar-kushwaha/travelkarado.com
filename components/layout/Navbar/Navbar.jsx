@@ -8,8 +8,8 @@ import { MdFlight } from "react-icons/md";
 import { FaHotel } from "react-icons/fa";
 import { FaUmbrellaBeach } from "react-icons/fa6";
 
-export default function Navbar() {
-    const [activeItem, setActiveItem] = useState("flights");
+export default function Navbar({products}) {
+    const [activeItem, setActiveItem] = useState(products);
 
     return (
         <nav className="navbar">
@@ -23,7 +23,7 @@ export default function Navbar() {
             </Link>
 
             <Link
-                href="#"
+                href="hotels"
                 className={`navItem ${activeItem === "hotels" ? "active" : ""}`}
                 onClick={() => setActiveItem("hotels")}
             >
