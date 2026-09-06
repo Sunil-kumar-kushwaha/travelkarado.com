@@ -66,7 +66,7 @@ export default function Footer() {
                     <h3>Travel</h3>
 
                     <Link href="/">Flights</Link>
-                    <Link href="/">Hotels</Link>
+                    <Link href="/hotels">Hotels</Link>
                     <Link href="/">Holiday Packages</Link>
                     <Link href="/">Travel Insurance</Link>
                 </div>
