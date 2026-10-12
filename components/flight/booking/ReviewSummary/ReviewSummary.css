@@ -1,0 +1,57 @@
+
+
+.reviewSummary {
+    border: 1px solid #e5e7eb;
+    border-radius: 12px;
+    padding: 20px;
+    background: #fff;
+}
+
+.reviewSummary__header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 16px;
+}
+
+.reviewSummary__header h3 {
+    margin: 0;
+    font-size: 18px;
+    color: #111827;
+}
+
+.reviewSummary__header button {
+    border: none;
+    background: transparent;
+    color: #2563eb;
+    font-weight: 600;
+    cursor: pointer;
+}
+
+.reviewSummary__section {
+    padding: 14px 0;
+    border-top: 1px solid #f3f4f6;
+}
+
+.reviewSummary__section:first-of-type {
+    border-top: none;
+}
+
+.reviewSummary__section h4 {
+    font-size: 13px;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+    color: #9ca3af;
+    margin: 0 0 8px;
+}
+
+.reviewSummary__section p {
+    font-size: 14px;
+    color: #111827;
+    margin: 4px 0;
+}
+
+.reviewSummary__muted {
+    color: #9ca3af !important;
+    font-size: 13px !important;
+}
