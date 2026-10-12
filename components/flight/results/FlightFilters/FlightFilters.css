@@ -1,0 +1,144 @@
+/* ============================================================
+   FRONTEND FILE (CSS)
+   ============================================================ */
+.flightFilters {
+    width: 280px;
+    flex-shrink: 0;
+}
+
+.flightFilters__section {
+    padding: 16px 0;
+    border-bottom: 1px solid #e5e7eb;
+}
+
+.flightFilters__section:first-child {
+    padding-top: 0;
+}
+
+.flightFilters__header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+    color: #6b7280;
+    margin-bottom: 12px;
+}
+
+.flightFilters__clear {
+    border: none;
+    background: transparent;
+    color: #2563eb;
+    font-size: 12px;
+    font-weight: 600;
+    text-transform: none;
+    letter-spacing: normal;
+    cursor: pointer;
+    padding: 0;
+}
+
+.flightFilters__pillRow {
+    display: flex;
+    gap: 8px;
+}
+
+.flightFilters__pill {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 2px;
+    padding: 10px 4px;
+    border: 1px solid #d1d5db;
+    border-radius: 8px;
+    background: #fff;
+    cursor: pointer;
+}
+
+.flightFilters__pill--active {
+    border-color: #111827;
+    background: #f3f4f6;
+}
+
+.flightFilters__pillLabel {
+    font-size: 13px;
+    font-weight: 600;
+    color: #111827;
+}
+
+.flightFilters__pillPrice {
+    font-size: 12px;
+    color: #6b7280;
+}
+
+.flightFilters__checkRow {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 6px 0;
+    cursor: pointer;
+    font-size: 14px;
+    color: #111827;
+}
+
+.flightFilters__checkLabel {
+    flex: 1;
+}
+
+.flightFilters__checkPrice {
+    font-size: 13px;
+    color: #6b7280;
+}
+
+.flightFilters__checkMuted {
+    font-size: 12px;
+    color: #9ca3af;
+}
+
+.flightFilters__checkCount {
+    font-size: 12px;
+    color: #9ca3af;
+    min-width: 16px;
+    text-align: right;
+}
+
+.flightFilters__showMore {
+    border: none;
+    background: transparent;
+    color: #2563eb;
+    font-size: 13px;
+    font-weight: 600;
+    cursor: pointer;
+    padding: 4px 0 0;
+}
+
+.flightFilters__histogram {
+    display: flex;
+    align-items: flex-end;
+    gap: 3px;
+    height: 64px;
+    margin-bottom: 6px;
+}
+
+.flightFilters__bar {
+    flex: 1;
+    background: #d1d5db;
+    border: none;
+    border-radius: 2px 2px 0 0;
+    cursor: pointer;
+    min-height: 4px;
+}
+
+.flightFilters__bar:hover,
+.flightFilters__bar--active {
+    background: #111827;
+}
+
+.flightFilters__histogramLabels {
+    display: flex;
+    justify-content: space-between;
+    font-size: 12px;
+    color: #6b7280;
+}

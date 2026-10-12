@@ -1,0 +1,47 @@
+
+
+.addonsSection {
+    border: 1px solid #e5e7eb;
+    border-radius: 12px;
+    padding: 20px;
+    margin-bottom: 20px;
+    background: #fff;
+}
+
+.addonsSection__header h3 {
+    font-size: 16px;
+    margin: 0 0 14px;
+    color: #111827;
+}
+
+.addonsSection__row {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 10px 0;
+    border-top: 1px solid #f3f4f6;
+    flex-wrap: wrap;
+}
+
+.addonsSection__row:first-of-type {
+    border-top: none;
+}
+
+.addonsSection__travellerLabel {
+    width: 100px;
+    flex-shrink: 0;
+    font-size: 14px;
+    font-weight: 600;
+    color: #111827;
+}
+
+.addonsSection__row select {
+    flex: 1;
+    min-width: 160px;
+    padding: 8px 10px;
+    border: 1px solid #d1d5db;
+    border-radius: 8px;
+    font-size: 13px;
+    color: #111827;
+    background: #fff;
+}

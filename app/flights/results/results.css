@@ -1,0 +1,36 @@
+/* ============================================================
+   FRONTEND FILE (CSS)
+   ============================================================ */
+.flightResults {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px 16px 60px;
+}
+
+.flightResults__body {
+    display: flex;
+    gap: 24px;
+    align-items: flex-start;
+}
+
+.flightResults__list {
+    flex: 1;
+    min-width: 0;
+}
+
+.flightResults__count {
+    font-size: 14px;
+    color: #6b7280;
+    margin: 0 0 16px;
+}
+
+.flightResults__status {
+    padding: 80px 16px;
+    text-align: center;
+    color: #6b7280;
+    font-size: 15px;
+}
+
+.flightResults__status--error {
+    color: #dc2626;
+}

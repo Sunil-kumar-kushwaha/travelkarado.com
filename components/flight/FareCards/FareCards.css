@@ -6,6 +6,10 @@
     flex-wrap: wrap;
 }
 
+.tk-flightsearch-error {
+    color:#e53c5e;
+}
+
 .tk-farecard-business {
     flex: 1.9;
     display: flex;

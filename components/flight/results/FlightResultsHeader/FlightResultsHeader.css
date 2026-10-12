@@ -1,0 +1,47 @@
+/* ============================================================
+   FRONTEND FILE (CSS)
+   ============================================================ */
+.flightResultsHeader {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    padding: 14px 20px;
+    background: #fff;
+    border: 1px solid #e5e7eb;
+    border-radius: 12px;
+    margin-bottom: 20px;
+    font-size: 14px;
+}
+
+.flightResultsHeader__pill {
+    padding: 4px 10px;
+    background: #f3f4f6;
+    border-radius: 999px;
+    font-weight: 600;
+    color: #111827;
+}
+
+.flightResultsHeader__route {
+    font-weight: 700;
+    color: #111827;
+}
+
+.flightResultsHeader__arrow {
+    color: #9ca3af;
+}
+
+.flightResultsHeader__date,
+.flightResultsHeader__travellers {
+    color: #6b7280;
+}
+
+.flightResultsHeader__modify {
+    margin-left: auto;
+    color: #2563eb;
+    font-weight: 600;
+    text-decoration: none;
+}
+
+.flightResultsHeader__modify:hover {
+    text-decoration: underline;
+}

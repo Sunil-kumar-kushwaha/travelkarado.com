@@ -1,0 +1,64 @@
+
+
+.confirmationPage {
+    display: flex;
+    justify-content: center;
+    padding: 80px 16px;
+}
+
+.confirmationPage__card {
+    max-width: 420px;
+    text-align: center;
+    border: 1px solid #e5e7eb;
+    border-radius: 16px;
+    padding: 40px 32px;
+    background: #fff;
+}
+
+.confirmationPage__icon {
+    font-size: 48px;
+    margin-bottom: 12px;
+}
+
+.confirmationPage__card h1 {
+    font-size: 22px;
+    color: #111827;
+    margin: 0 0 8px;
+}
+
+.confirmationPage__card p {
+    font-size: 14px;
+    color: #6b7280;
+    margin: 0 0 20px;
+}
+
+.confirmationPage__ref {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    padding: 14px;
+    background: #f9fafb;
+    border-radius: 10px;
+    margin-bottom: 24px;
+}
+
+.confirmationPage__ref span {
+    font-size: 12px;
+    color: #9ca3af;
+}
+
+.confirmationPage__ref strong {
+    font-size: 15px;
+    color: #111827;
+}
+
+.confirmationPage__homeLink {
+    display: inline-block;
+    padding: 12px 28px;
+    background: #111827;
+    color: #fff;
+    border-radius: 10px;
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 14px;
+}

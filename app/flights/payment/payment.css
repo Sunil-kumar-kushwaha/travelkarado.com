@@ -1,0 +1,33 @@
+
+
+.paymentPage {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 24px 16px 60px;
+    display: flex;
+    gap: 24px;
+    align-items: flex-start;
+}
+
+.paymentPage__main {
+    flex: 1;
+    min-width: 0;
+}
+
+.paymentPage__heading {
+    font-size: 20px;
+    color: #111827;
+    margin: 0 0 16px;
+}
+
+.paymentPage__error {
+    color: #dc2626;
+    font-size: 14px;
+    margin: 0 0 12px;
+}
+
+.paymentPage__status {
+    padding: 80px 16px;
+    text-align: center;
+    color: #6b7280;
+}
