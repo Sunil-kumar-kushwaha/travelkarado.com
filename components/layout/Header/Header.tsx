@@ -3,7 +3,7 @@
 import "./Header.css";
 import Image from "next/image";
 import Link from "next/link";
-
+import AccountMenu from "@/components/account/AccountMenu/AccountMenu";
 import travelKarwadoLogo from "@/assets/images/travelKarwadoLogo.png";
 
 import { BiSolidOffer } from "react-icons/bi";
@@ -41,7 +41,7 @@ export default function Header() {
                     <span>Offers</span>
                 </Link>
 
-                <Link href="/trips" className="headerLink">
+                <Link href="/accounts/trips" className="headerLink">
                     <MdAirplaneTicket className="headIcon" />
                     <span>My Trips</span>
                 </Link>
@@ -50,19 +50,8 @@ export default function Header() {
                     <MdSupportAgent className="headIcon" />
                     <span>Support</span>
                 </Link>
-
                 {loggedIn ? (
-                    <>
-                        <Link href="/account" className="headerLink">
-                            <IoMdLogIn className="headIcon" />
-                            <span>My Account</span>
-                        </Link>
-                        <button className="loginBtn" onClick={handleLogout}>
-                            <span>Logout</span>
-                            <IoMdLogOut className="headIcon" />
-                        </button>
-                    </>
-                    
+                    <AccountMenu onLogout={handleLogout} />
                 ) : (
                     <button className="loginBtn" onClick={open}>
                         <span>Login</span>

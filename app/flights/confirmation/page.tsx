@@ -2,11 +2,12 @@
 
 
 
+import { Suspense } from "react";
 import Link from "next/link";
 import { useSearchParams } from "next/navigation";
 import "./confirmation.css";
 
-export default function ConfirmationPage() {
+function ConfirmationContent() {
     const searchParams = useSearchParams();
     const paymentRef = searchParams.get("paymentRef") || "";
 
@@ -29,5 +30,14 @@ export default function ConfirmationPage() {
                 </Link>
             </div>
         </div>
+    );
+}
+
+
+export default function ConfirmationPage() {
+    return (
+        <Suspense fallback={<div className="confirmationPage">Loading...</div>}>
+            <ConfirmationContent />
+        </Suspense>
     );
 }

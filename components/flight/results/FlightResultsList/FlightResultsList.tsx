@@ -1,9 +1,7 @@
-// ============================================================
-// FRONTEND FILE (Next.js / React)
-// ============================================================
+
 "use client";
 
-// components/flight/results/FlightResultsList/FlightResultsList.tsx
+
 
 import { FlightResult } from "@/types/Flight.types";
 

@@ -171,6 +171,7 @@ const apiClient = {
         } finally {
             clearCookie('userId');
             clearCookie('authToken');
+            clearCookie('userPhone');
         }
     },
 

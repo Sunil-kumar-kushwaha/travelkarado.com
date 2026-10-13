@@ -1,15 +1,17 @@
 "use client";
 
-// components/LoginModal/LoginModal.tsx
+
 
 import { useState, useRef, useEffect, useCallback } from "react";
 import { useRouter } from "next/navigation";
 import "./LoginModal.css";
 import apiClient, { setCookie } from "@/utils/ApiClient";
+import { useAppDispatch } from "@/store/hooks";
+import { setLoggedIn } from "@/store/slices/authSlice";
 
 const GOOGLE_CLIENT_ID = process.env.NEXT_PUBLIC_GOOGLE_CLIENT_ID;
 const RESEND_SECONDS = 30;
-const HOME_URL = "/flights";
+const HOME_URL = "/flights"; // change to your flights home route
 
 interface LoginModalProps {
     onClose: () => void;
@@ -23,6 +25,7 @@ interface LoginResponse {
 
 export default function LoginModal({ onClose }: LoginModalProps) {
     const router = useRouter();
+    const dispatch = useAppDispatch();
 
     const [step, setStep] = useState<"phone" | "otp">("phone");
     const [countryCode] = useState("+91");
@@ -35,14 +38,14 @@ export default function LoginModal({ onClose }: LoginModalProps) {
     const otpRefs = useRef<(HTMLInputElement | null)[]>([]);
     const googleBtnRef = useRef<HTMLDivElement | null>(null);
 
-
+    // close on Escape
     useEffect(() => {
         const onKey = (e: KeyboardEvent) => e.key === "Escape" && onClose();
         document.addEventListener("keydown", onKey);
         return () => document.removeEventListener("keydown", onKey);
     }, [onClose]);
 
-
+    // resend countdown
     useEffect(() => {
         if (resendIn <= 0) return;
         const t = setTimeout(() => setResendIn((s) => s - 1), 1000);
@@ -50,14 +53,16 @@ export default function LoginModal({ onClose }: LoginModalProps) {
     }, [resendIn]);
 
     const completeLogin = useCallback(
-        (data: LoginResponse) => {
+        (data: LoginResponse, phoneNumber?: string) => {
+            if (phoneNumber) setCookie("userPhone", phoneNumber, 30); 
             if (data?.userId != null) setCookie("userId", String(data.userId), 30);
             if (data?.authToken) setCookie("authToken", data.authToken, 30);
+            dispatch(setLoggedIn(true));
             onClose();
             router.push(HOME_URL);
             router.refresh();
         },
-        [onClose, router]
+        [onClose, router, dispatch]
     );
 
     // ---------- phone step ----------
@@ -132,7 +137,7 @@ export default function LoginModal({ onClose }: LoginModalProps) {
                 phone: `${countryCode}${phone}`,
                 otp: code,
             });
-            completeLogin(data);
+            completeLogin(data, `${countryCode}${phone}`);
         } catch (err) {
             const apiErr = err as InstanceType<typeof apiClient.ApiError>;
             setError((apiErr.data as LoginResponse)?.message || "Incorrect OTP. Try again.");
@@ -220,7 +225,7 @@ export default function LoginModal({ onClose }: LoginModalProps) {
                             <h2 className="loginModal__title">Log in or sign up</h2>
 
                             <div className="loginModal__phoneRow">
-                                <select className="loginModal__countryCode" defaultValue={countryCode} >
+                                <select className="loginModal__countryCode" disabled value={countryCode}>
                                     <option value="+91">+91</option>
                                 </select>
                                 <input
@@ -293,12 +298,7 @@ export default function LoginModal({ onClose }: LoginModalProps) {
                                 onClick={handleResend}
                                 disabled={resendIn > 0}
                             >
-                                {resendIn > 0 ? `Resend OTP in ${resendIn}s` : (
-                                    <>
-                                        Haven&apos;t received OTP?{" "}
-                                        <span className="resendOtp">Resend</span>
-                                    </>
-                                )}
+                                {resendIn > 0 ? `Resend OTP in ${resendIn}s` : "Resend OTP"}
                             </button>
                         </div>
                     )}
