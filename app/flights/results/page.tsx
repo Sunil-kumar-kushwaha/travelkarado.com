@@ -1,8 +1,6 @@
 "use client";
 
-
-
-import { useEffect, useMemo, useState } from "react";
+import { Suspense, useEffect, useMemo, useState } from "react";
 import { useSearchParams, useRouter } from "next/navigation";
 import apiClient from "@/utils/ApiClient";
 import { EMPTY_FILTERS, FilterState, FlightResult, FlightSearchApiResponse } from "@/types/Flight.types";
@@ -16,11 +14,10 @@ import Navbar from "@/components/layout/Navbar/Navbar";
 import Header from "@/components/layout/Header/Header";
 import Footer from "@/components/footer/Footer";
 
-export default function FlightResultsPage() {
+function FlightResultsContent() {
     const searchParams = useSearchParams();
     const router = useRouter();
     const { startBooking } = useBooking();
-
 
     const source = searchParams.get("source") || "";
     const destination = searchParams.get("destination") || "";
@@ -60,7 +57,6 @@ export default function FlightResultsPage() {
                 setError("Could not load flights. Please try again.");
             })
             .finally(() => setLoading(false));
-        // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [source, destination, departureDate, passengers]);
 
     const flights: FlightResult[] = apiResponse?.flights || [];
@@ -104,7 +100,6 @@ export default function FlightResultsPage() {
             <Header />
             <Navbar products={"flights"} />
             <div className="flightResults">
-
                 <FlightResultsHeader
                     from={source}
                     to={destination}
@@ -126,8 +121,15 @@ export default function FlightResultsPage() {
                 </div>
             </div>
             <Footer />
-
         </div>
+    );
+}
 
+
+export default function FlightResultsPage() {
+    return (
+        <Suspense fallback={<div className="flightResults__status">Loading flights...</div>}>
+            <FlightResultsContent />
+        </Suspense>
     );
 }

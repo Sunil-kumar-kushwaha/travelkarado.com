@@ -1,6 +1,7 @@
 "use client";
 
 
+import { Suspense } from "react";
 import { useMemo, useState } from "react";
 import { useRouter, useSearchParams } from "next/navigation";
 import apiClient from "@/utils/ApiClient";
@@ -10,7 +11,7 @@ import BookingSidebar from "@/components/flight/booking/BookingSidebar/BookingSi
 import PaymentMethodSelector, { PaymentMethod } from "@/components/flight/payment/PaymentMethodSelector/PaymentMethodSelector";
 import "./payment.css";
 
-export default function PaymentPage() {
+function PaymentContent() {
     const router = useRouter();
     const searchParams = useSearchParams();
     const bookingId = searchParams.get("bookingId") || "";
@@ -38,7 +39,7 @@ export default function PaymentPage() {
                 amount: priceBreakup.totalPrice,
                 details,
             });
-            clear(); // booking is done — drop the draft so a stale one can't leak into the next search
+            clear(); 
             router.push(`/flights/confirmation?paymentRef=${result.data.paymentRef}`);
         } catch (err) {
             const apiErr = err as InstanceType<typeof apiClient.ApiError>;
@@ -63,5 +64,14 @@ export default function PaymentPage() {
                 onApplyOffer={applyOffer}
             />
         </div>
+    );
+}
+
+
+export default function PaymentPage() {
+    return (
+        <Suspense fallback={<div className="paymentPage__status">Loading payment details...</div>}>
+            <PaymentContent />
+        </Suspense>
     );
 }

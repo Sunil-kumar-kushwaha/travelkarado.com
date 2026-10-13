@@ -1,0 +1,9 @@
+.accountBlank {
+    min-height: 50vh;
+}
+
+.accountBlank__title {
+    font-size: 32px;
+    font-weight: 500;
+    margin: 0;
+}
