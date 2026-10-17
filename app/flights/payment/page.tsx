@@ -39,7 +39,7 @@ function PaymentContent() {
                 amount: priceBreakup.totalPrice,
                 details,
             });
-            clear(); 
+            clear(); // /accounts/trips/flight/${bookingId}
             router.push(`/flights/confirmation?paymentRef=${result.data.paymentRef}`);
         } catch (err) {
             const apiErr = err as InstanceType<typeof apiClient.ApiError>;
