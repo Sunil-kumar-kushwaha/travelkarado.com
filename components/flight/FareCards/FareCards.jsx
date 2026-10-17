@@ -8,12 +8,7 @@ const FARE_TYPES = [
     { id: "armed", label: "Armed forces", note: "Up to ₹600 off" },
 ];
 
-/**
- * selectedFares: Set of fare-type ids ("student" | "senior" | "armed")
- * onToggleFare: (nextSet) => void
- * businessFares: boolean
- * onToggleBusiness: (checked) => void
- */
+
 export default function FareCards({ selectedFares, onToggleFare, businessFares, onToggleBusiness }) {
     const toggleFare = (id) => {
         const next = new Set();
