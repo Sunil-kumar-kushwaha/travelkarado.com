@@ -181,12 +181,7 @@ export default function AssistantPanel({ open, onClose }: { open: boolean; onClo
                 setInput(text);
                 if (isFinal) submit(text); // a finished sentence is sent automatically
             },
-            (code) =>
-                chat.note(
-                    code === "not-allowed"
-                        ? "Microphone access is blocked. Allow it in your browser settings, or type instead."
-                        : "I couldn't hear that. Please try again."
-                )
+            (code) => chat.note(code === "not-allowed"   ? "Microphone access is blocked. Allow it in your browser settings, or type instead." : "I couldn't hear that. Please try again." )
         );
     };
 
