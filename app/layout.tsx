@@ -4,6 +4,7 @@ import "./globals.css";
 import StoreProvider from "@/store/StoreProvider";
 import { LoginModalProvider } from "@/context/LoginModalContext";
 import { BookingProvider } from "@/context/BookingContext";
+import AssistantLauncher from "@/components/assistant/AssistantLauncher";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -32,7 +33,10 @@ export default function RootLayout({
     >
       <body className="min-h-full flex flex-col">
         <StoreProvider>
-          <LoginModalProvider>{children}</LoginModalProvider>
+          <LoginModalProvider>
+            {children}
+            <AssistantLauncher />
+          </LoginModalProvider>
         </StoreProvider>
       </body>
     </html>
